@@ -15,7 +15,7 @@ const Campo = (props) => {
             <input 
                 placeholder={placeholderModificado} 
                 required={props.required} 
-                value={valor}
+                value={props.value}
                 onChange={manejarCambio}
             />
         </div>

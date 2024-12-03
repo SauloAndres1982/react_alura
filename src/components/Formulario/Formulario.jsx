@@ -4,10 +4,10 @@ import ListaOpciones from "../ListaOpciones/ListaOpciones";
 import Button from "../Button/Button";
 import { useState } from "react";
 
-function Formulario(){
-    const [nombre, setNombre] = useState("")
-    const [puesto, setPuesto] = useState("")
-    const [foto, setFoto] = useState("")
+function Formulario(props){
+    const [nombre, setNombre] = useState("saulito")
+    const [puesto, setPuesto] = useState("Backend")
+    const [foto, setFoto] = useState("Saulito bebé")
     const [equipo, setEquipo] = useState("Devops")
 
     const controlarEnvio = (evento) => {
@@ -23,7 +23,7 @@ function Formulario(){
                 <Campo titulo="Nombre" placeholder="Ingresar nombre" required={true} value={nombre} actualizarValor={setNombre} />
                 <Campo titulo="Puesto" placeholder="Ingresar puesto" value={puesto} actualizarValor={setPuesto} />
                 <Campo titulo="Foto" placeholder="Ingresar foto" required={true}value={foto} actualizarValor={setFoto}/>
-                <ListaOpciones value={equipo} actualizarEquipo={setEquipo} />
+                <ListaOpciones value={equipo} actualizarEquipo={setEquipo} equipos={props.equipos} />
                 <Button>
                     Crear
                 </Button>
