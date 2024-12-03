@@ -1,12 +1,9 @@
 import "./ListaOpciones.css"
 
 const ListaOpciones = (props) => {
-
-
     const manejarCambio = (e) => {
-        console.log("cambio")
-        props.actualizarEquipo(e.target.value)
-        
+        console.log("cambio");
+        props.actualizarEquipo(e.target.value);        
     }
     
     return (

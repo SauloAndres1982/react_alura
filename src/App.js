@@ -13,6 +13,10 @@ function App() {
     setMostrarFormulario(!mostrarFormulario)
   }
 
+  const registrarColaborador = (colaborador) => {
+    console.log("Nuevo colaborador", colaborador)
+  }
+
   // Lista de equipos
   const equipos = [
     
@@ -55,7 +59,7 @@ function App() {
   return (
     <div>      
       <Header />  
-      {mostrarFormulario === true && <Formulario equipos={equipos.map((equipo)=>equipo.titulo)} />}      
+      {mostrarFormulario === true && <Formulario equipos={equipos.map((equipo)=>equipo.titulo)} registrarColaborador={registrarColaborador} />}      
       
       <MiOrg cambiarMostrar={cambiarMostrar} />  
       {
