@@ -14,7 +14,7 @@ function Formulario(props){
     const controlarEnvio = (evento) => {
         evento.preventDefault()
         let datosAEnviar = {nombre, puesto, foto, equipo}
-        console.log(datosAEnviar)
+        
         registrarColaborador(datosAEnviar)
     }
 

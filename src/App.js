@@ -1,4 +1,4 @@
-import { act, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Formulario from "./components/Formulario/Formulario"
@@ -8,6 +8,7 @@ import Equipo from './components/Equipo';
 
 function App() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false)
+  const [colaboradores, setColaboradores] = useState([])
 
   const cambiarMostrar = () => {
     setMostrarFormulario(!mostrarFormulario)
@@ -15,6 +16,8 @@ function App() {
 
   const registrarColaborador = (colaborador) => {
     console.log("Nuevo colaborador", colaborador)
+
+    setColaboradores([...colaboradores, colaborador])
   }
 
   // Lista de equipos
@@ -63,9 +66,11 @@ function App() {
       
       <MiOrg cambiarMostrar={cambiarMostrar} />  
       {
-        equipos.map((equipo, index) => { 
-          console.log("equipo:",equipo)
-          return <Equipo datos={equipo} key={equipo.titulo} />
+        equipos.map((equipo) => { 
+          return <Equipo 
+          datos={equipo} 
+          key={equipo.titulo} 
+          colaboradores={colaboradores.filter(colaborador => colaborador.equipo===equipo.titulo)} />
         } )
       }
     </div>
