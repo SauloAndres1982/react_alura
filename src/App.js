@@ -4,15 +4,47 @@ import Header from './components/Header/Header';
 import Formulario from "./components/Formulario/Formulario"
 import MiOrg from './components/MiOrg/MiOrg';
 import Equipo from './components/Equipo';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false)
-  const [colaboradores, setColaboradores] = useState([])
+  const [colaboradores, setColaboradores] = useState([{
+    equipo: "Front End",
+    foto: "https://github.com/harlandlohora.png",
+    nombre: "Harland Lohora",
+    puesto: "Instructor"
+  },
+  {
+    equipo: "Programación",
+    foto: "https://github.com/genesysaluralatam.png",
+    nombre: "Genesys Rondón",
+    puesto: "Desarrolladora de software e instructora"
+  },
+  {
+    equipo: "UX y Diseño",
+    foto: "https://github.com/JeanmarieAluraLatam.png",
+    nombre: "Jeanmarie Quijada",
+    puesto: "Instructora en Alura Latam"
+  },
+  {
+    equipo: "Programación",
+    foto: "https://github.com/christianpva.png",
+    nombre: "Christian Velasco",
+    puesto: "Head de Alura e Instructor"
+  },
+  {
+    equipo: "Innovación y Gestión",
+    foto: "https://github.com/JoseDarioGonzalezCha.png",
+    nombre: "Jose Gonzalez",
+    puesto: "Dev FullStack"
+  }])
 
   const cambiarMostrar = () => {
     setMostrarFormulario(!mostrarFormulario)
   }
+
+  //Registro de colaboradores
 
   const registrarColaborador = (colaborador) => {
     console.log("Nuevo colaborador", colaborador)
@@ -20,11 +52,17 @@ function App() {
     setColaboradores([...colaboradores, colaborador])
   }
 
+//  Eliminando colaboradores
+
+  const eliminarColaborador = () => {
+    console.log("Eliminar colaborador");
+  }
+
   // Lista de equipos
   const equipos = [
     
     {
-      titulo: "programación",
+      titulo: "Programación",
       colorPrimario: "#57C278",
       colorSecundario: "#D9F7E9"
     },
@@ -70,9 +108,12 @@ function App() {
           return <Equipo 
           datos={equipo} 
           key={equipo.titulo} 
-          colaboradores={colaboradores.filter(colaborador => colaborador.equipo===equipo.titulo)} />
+          colaboradores={colaboradores.filter(colaborador => colaborador.equipo===equipo.titulo)}  
+          eliminarColaborador={eliminarColaborador}
+          />
         } )
       }
+      <Footer />
     </div>
   );
 }
