@@ -47,7 +47,7 @@ function Formulario(props){
             <form onSubmit={manejarNuevoEquipo}>
                 <h2>Rellena el formulario para crear el equipo.</h2>
                 <Campo titulo="Título" placeholder="Ingresar Título" required={true} valor={titulo} setValor={setTitulo} />
-                <Campo titulo="Color" placeholder="Ingresar el color en Hexadecimal" valor={color} setValor={setColor} />
+                <Campo titulo="Color" placeholder="Ingresar el color en Hexadecimal" valor={color} setValor={setColor} type="color" />
                 <Button>Registrar equipo</Button>
             </form>
         </section>
